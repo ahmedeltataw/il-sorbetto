@@ -1,0 +1,27 @@
+{
+    "header":{
+        "home": "home",
+        "menu":"Menu",
+        "wholesale":"wholesale",
+        "order":"order now",
+        "story":"our story",
+        "contact":"contact us"
+    },
+        "webName":{
+        "home": "IL SORBETTO |  Home",
+        "menu":"IL SORBETTO |  Menu",
+        "wholesale":"IL SORBETTO |  Wholesale",
+        "order":"IL SORBETTO |  Order Now",
+        "story":"IL SORBETTO |  Our Story",
+        "contact":"IL SORBETTO |  Contact Us"
+    },
+    "menu":{
+        "products":"our products",
+        "gelatto":"gelatto ",
+        "iceCream":"ice cream "
+    },
+    "hero":{
+        "title":"Fresh flavors for all palates",
+        "des":"Do you like strawberry, banana or lemon? It doesn't matter, we have a wide variety of different flavors and foods to satisfy all tastes"
+    }
+}

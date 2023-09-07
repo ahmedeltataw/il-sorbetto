@@ -1,0 +1,27 @@
+{
+    "header":{
+        "home": "الرئيسية",
+        "menu":"المنيو",
+        "wholesale":"بيع بالجملة",
+        "order":" اطلب الان ",
+        "story":" قصتنا ",
+        "contact":" تواصل معانا "
+    },
+    "webName":{
+        "home": "IL SORBETTO | الرئيسية",
+        "menu":"IL SORBETTO | المنيو",
+        "wholesale":"IL SORBETTO | بيع بالجملة",
+        "order":"IL SORBETTO |  اطلب الان ",
+        "story":"IL SORBETTO |  قصتنا ",
+        "contact":"IL SORBETTO |  تواصل معانا "
+    },
+        "menu":{
+        "products":" منتجاتنا ",
+        "gelatto":" جيلاتو (ايس كريك) ",
+        "iceCream":" ايس كريم "
+    },
+        "hero":{
+        "title":"نكهات طازجة تناسب كافة الأذواق",
+        "des":"هل تحب الفراولة أم الموز أم الليمون؟ ولا يهم، لدينا تشكيلة واسعة من النكهات والأطعمة المختلفة لإرضاء جميع الأذواق"
+    }
+}

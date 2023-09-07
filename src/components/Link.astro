@@ -1,0 +1,9 @@
+---
+interface Props {
+    title:string,
+    classes:string,
+    href:string,
+}
+const {title ,classes , href} =Astro.props;
+---
+<a href={href} class={classes}> {title}  </a>

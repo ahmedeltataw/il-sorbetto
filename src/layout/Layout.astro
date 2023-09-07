@@ -1,0 +1,105 @@
+---
+interface Props {
+    title:string
+}
+const {title}=Astro.props;
+
+import Script from "./LayoutScript.astro";
+// Style 
+import '../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css';
+import '../assets/plugins/css/AE.css';
+import "../assets/scss/style.scss"
+import 'aos/dist/aos.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+//compontents
+import i18next from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+//
+import Header from "../components/header.astro";
+
+---
+
+<!DOCTYPE html>
+<html lang={i18next.language}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content={Astro.generator} />
+    	<link rel="icon" type="image/x-icon"  href='/image/favicon.webp' />
+            <title>{title}</title>
+    <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap">
+    </GoogleFontsOptimizer>
+    <HeadHrefLangs />
+</head>
+<body>
+    <main>
+        <Header />
+        <slot />
+    </main>
+    <Script />
+</body>
+</html>
+<style is:global lang="scss">
+
+    :root{
+        --main-l:#484848;
+        --main-d:#2e2e2e;
+        --hover:#dd3333;
+        --bg:#f4f4f4;
+        --MTsection: 10vh;
+        --transition:.3s ;
+    }
+    *{
+        font-family: 'Almarai';
+    }
+    body{
+        background: var(--bg);
+    }
+    html[lang="en"]{
+        direction: ltr;
+         .icon-left,.icon-left-2{
+            left: 3px;
+        }
+        .drop-box-2{
+            .nav-link{
+                text-align: left;
+            }
+        }
+        .responsive-link {
+            li{
+                 a {
+          &:hover,
+          &.active {
+            transform: translateX(15px); //change
+          }
+        }
+            }
+        }
+
+    }
+    html[lang="ar"]{
+        direction: rtl;
+        .icon-left,.icon-left-2{
+            left: -3px;
+        }
+                .drop-box-2{
+            .nav-link{
+                text-align: right;
+            }
+        };
+         .responsive-link {
+            li{
+                 a {
+          &:hover,
+          &.active {
+            transform: translateX(-15px); //change
+          }
+        }
+            }
+        }
+    }
+</style>
+

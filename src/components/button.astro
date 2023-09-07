@@ -1,0 +1,19 @@
+---
+interface Props {
+    title:string,
+    aria:string,
+    classes?:string,
+    style:string
+
+}
+const {title ,aria , classes , style}=Astro.props;
+---
+<button aria-label={aria}  class:list={["btn  round-6 " , classes , style]}> {title} <slot/> </button>
+<style lang="scss">
+    .btn-popup{
+        background-color: var(--main-l);
+        &::before{
+            background-color: var(--hover);
+        }
+    }
+</style>

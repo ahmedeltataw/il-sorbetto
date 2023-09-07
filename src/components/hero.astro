@@ -1,0 +1,92 @@
+---
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import { Image } from "astro:assets";
+// components
+import Link from "./Link.astro";
+import Button from "./button.astro";
+//image
+import img1 from "../assets/image/hero/3.jpg"
+---
+<section class="hero">
+    
+<div class="container">
+         <div class="swiper heroSlider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+                <div class="row gap-1 ">
+                    
+                    <div class="col-6-md col-12-sm">
+                        <div class="details">
+                            <h2 class="title fs-r-60"> {t("hero.title")} </h2>
+                            <p class="des fs-r-24"> {t("hero.des")} </p>
+                            <div class="button mt-12">
+                                <Button aria="a" classes="btn-popup" title="" style="">
+                                    <Link href={localizePath("/order/")} classes="px-8 py-6 fs-20" title={t("header.order")} />
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6-md col-12-sm">
+                        <div class="hero-img">
+                            <Image src={img1} alt="slider-img" format="avif" quality={50} />
+                        </div>
+                    </div>
+                </div>
+          </div>
+          <div class="swiper-slide">
+                a
+          </div>
+          <div class="swiper-slide">
+                a
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+</div>
+
+</section>
+<style lang="scss">
+    @import "../assets/scss/helper/_mixin.scss";
+    .hero{
+        padding-top: 0;
+        min-height: calc(100vh - 84px);
+        background: url("../assets/image/hero/full.webp") no-repeat center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        &::before{
+            @include overlay( #2e2e2e, .55);
+        }
+        .swiper-slide{
+            padding-top: 22vh;
+        }
+        .hero-img{
+            position: relative;
+            
+            img{
+                object-fit: contain;
+                height: 100%;
+                mask-image: url("../assets/image/hero/splash.png") ;
+                mask-position: center ;
+                mask-repeat:no-repeat;
+                mask-size: cover;
+            }
+        }
+        .details{
+            .title{
+                line-height: 1.2;
+                color: #fff;
+                margin-bottom: 2vh;
+            }
+            .des{
+                color: #fff;
+                line-height: 1.5;
+                max-width: 600px;
+                width: 100%;
+                opacity: .8;
+            }
+        }
+    }
+</style>

@@ -1,0 +1,421 @@
+---
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import { Image } from "astro:assets";
+import { LanguageSelector } from "astro-i18next/components";
+
+
+
+// components
+import Link from "./Link.astro";
+import Button from "./button.astro";
+//image
+import logo from "../assets/image/logo.png";
+
+//data
+const NavData = [
+  {
+    title: t("header.wholesale"),
+    href: "/wholesale/",
+  },
+  {
+    title: t("header.order"),
+    href: "/order/",
+  },
+
+  {
+    title: t("header.story"),
+    href: "/story/",
+  },
+  {
+    title: t("header.contact"),
+    href: "/contact/",
+  },
+];
+const menuData = [
+  {
+    title: t("menu.products"),
+    path: "#/",
+  },
+  {
+    title: t("menu.gelatto"),
+    path: "#/",
+  },
+  {
+    title: t("menu.iceCream"),
+    path: "#/",
+  },
+];
+
+---
+
+<header>
+  <div class="container">
+    <nav class="d-flex align-items-center justify-space-between">
+      <Button aria="icon-header" classes="icon-nav btn" style="" title="">
+        <span></span>
+        <span></span>
+        <span></span>
+      </Button>
+      <a href={localizePath("/")} class="logo lg-max-mx-auto">
+        <Image src={logo} alt="IL SORBETTO logo" format="avif" />
+      </a>
+      <ul class="d-flex align-items-center lg-max-d-none">
+        <li class="nav-link">
+          <Link
+            title={t("header.home")}
+            href= {localizePath("/")}
+            classes="fs-16 pl-12 fw-700 "
+          />
+        </li>
+        <!--  -->
+        <li class="nav-link dropMenu">
+          <p class="fs-16 pl-12 fw-700 drop-name">
+            {t("header.menu")}
+            <span class="icon-left-2"></span>
+            <span class="icon-right-2"></span>
+          </p>
+
+          <ul class="drop-box-2">
+            {
+              menuData.map((li) => (
+                <li class="nav-link">
+                  <Link
+                    title={li.title}
+                    href={localizePath(li.path)}
+                    classes="fs-16 pl-12 fw-700 "
+                  />
+                </li>
+              ))
+            }
+          </ul>
+        </li>
+        <!--  -->
+        {
+          NavData.map((link) => (
+            <li class="nav-link">
+              <Link
+                title={link.title}
+                href={localizePath(link.href)}
+                classes="fs-16 pl-12 fw-700 "
+              />
+            </li>
+          ))
+        }
+      </ul>
+      <LanguageSelector
+        languageMapping={{ en: `English `, ar: "العربية" }}
+        class="my-select-class"
+      />
+    </nav>
+
+    <ul class="responsive-link" style="height:0">
+      <li class="nav-link">
+        <Link title={t("header.home")} href={localizePath("/")} classes="fs-16  fw-700 " />
+      </li>
+      <li class="nav-link dropMenu">
+        <p class="fs-16  fw-700 drop-name">
+          {t("header.menu")}
+          <span class="icon-left-2"></span>
+          <span class="icon-right-2"></span>
+        </p>
+
+        <ul class="drop-box-2">
+          {
+            menuData.map((li) => (
+              <li class="nav-link">
+                <Link
+                  title={li.title}
+                  href={localizePath(li.path)}
+                  classes="fs-16  fw-700 "
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </li>
+      <!--  -->
+      {
+        NavData.map((link) => (
+          <li class="nav-link">
+            <Link
+              title={link.title}
+              href={localizePath(link.href)}
+              classes="fs-16  fw-700 "
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+<style lang="scss" is:global>
+  @import "../assets/scss/helper/_animation.scss";
+  @import "../assets/scss/helper/_extend.scss";
+  header {
+    background: #fff;
+    box-shadow: 0 0 20px rgba(96, 96, 96, 0.3);
+    width: 100%;
+    z-index: 99999;
+    position: relative;
+    .icon-nav {
+      span{
+        background-color: var(--main-d);
+      }
+    }
+    .nav-link {
+      a {
+        color: var(--main-d);
+        text-transform: capitalize;
+        transition: 0.3s;
+        &:hover,
+        &.active {
+          color: var(--hover);
+        }
+      }
+    }
+    nav {
+      padding: 12px 0;
+      .logo {
+        padding: 0 5px;
+        img {
+          height: 60px;
+          object-fit: contain;
+          @media (max-width: 480px) {
+            height: 50px;
+          }
+        }
+      }
+      .dropMenu {
+        position: relative;
+        .drop-name {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          position: relative;
+          &.active {
+            color: var(--hover);
+          }
+          @extend %icon-drop;
+          .icon-left-2,
+          .icon-right-2 {
+            &.active {
+              background-color: var(--hover);
+            }
+          }
+        }
+        .drop-box-2 {
+          @extend %drop-menu;
+          .nav-link {
+            @extend %drop-down;
+            margin-top: 1px;
+            
+            &:first-child {
+              margin-top: 0;
+            }
+            min-width: 180px;
+            top: -150px;
+            a {
+              color: #c5c5c5;
+              font-weight: 500;
+            }
+            &:hover {
+              a {
+                color: #fff;
+                letter-spacing: 0.5px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .responsive-link {
+      background-color: #ffff;
+      box-shadow: 0px 20px 20px rgba(96, 96, 96, 0.2);
+      min-height: 0;
+      .dropMenu {
+        .drop-name {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          position: relative;
+          color: var(--main-d);
+          
+          &.active {
+            color: var(--hover);
+          }
+          @extend %icon-drop;
+          .icon-left-2,
+          .icon-right-2 {
+            &.active {
+              background-color: var(--hover);
+            }
+          }
+        }
+        .drop-box-2 {
+          min-width: 104px;
+          overflow: hidden;
+          height: 0;
+          transition: height .3s ease-in-out;
+          &.active{
+            height: 122px;
+          }
+          .nav-link {
+            background-color: transparent;
+            
+            
+            font-weight: 500;
+            padding: 10px;
+            
+            width: 180px;
+            margin-top: 1px;
+            
+            min-width: 180px;
+            &:first-child {
+              margin-top: 0;
+            }
+            
+            a {
+              color: var(--main-d);
+              font-size: 1rem;
+              font-weight: 500;
+              opacity: .8;
+            }
+            &:hover {
+              a {
+                opacity: 1;
+                letter-spacing: 0.5px;
+              }
+            }
+          }
+        }
+      }
+      li {
+        padding: 10px 30px;
+        &:first-child {
+          padding-top: 20px;
+        }
+        &:last-child {
+          padding-bottom: 20px;
+        }
+       
+      }
+    }
+    &.scroll {
+      position: fixed;
+      top: 0;
+      animation: sticky 1s ease-in-out;
+      .logo {
+        padding: 0 5px;
+        img {
+          height: 55px;
+          object-fit: contain;
+        }
+      }
+      nav {
+        padding: 8px 0;
+      }
+    }
+  }
+  @include nav-sticky(sticky);
+</style>
+<!-- to resposive menu -->
+<script>
+  let iconNav = document.querySelector<HTMLElement>(".icon-nav");
+  let responsiveLink = document.querySelector<HTMLElement>(".responsive-link");
+  function openBaseMenu() {
+ 
+    iconNav.classList.toggle("active");
+    function slideUp() {
+      responsiveLink.style.transition = "all .5s ease-in-out";
+      responsiveLink.style.height = "0px";
+      responsiveLink.style.minHeight = "0px";
+                window.setTimeout(()=>{
+      responsiveLink.style.removeProperty("min-height");
+      responsiveLink.style.removeProperty("transition");
+    } ,500)
+    }
+    function slideDown() {
+      responsiveLink.style.transition = "all .5s ease-in-out";
+      responsiveLink.style.minHeight = `300px`;
+          window.setTimeout(()=>{
+      responsiveLink.style.removeProperty("height");
+      responsiveLink.style.removeProperty("transition");
+    } ,500)
+      
+    }
+
+
+    if (iconNav.classList.contains("active")) {
+      slideDown();
+    } else {
+      slideUp();
+    }
+  }
+  iconNav.addEventListener("click", openBaseMenu);
+</script>
+<!-- to active link -->
+<script>
+
+  let LInksActive = document.querySelectorAll(".nav-link a");
+
+  LInksActive.forEach((li) => {
+    if (li.getAttribute("href") == window.location.pathname) {
+      li.classList.add("active");
+    } else {
+      li.classList.remove("active");
+    }
+  });
+</script>
+<!-- fixed header -->
+<script>
+  let Header = document.querySelector("header");
+  let body = document.body
+  
+  let DropMenu = document.querySelector<HTMLElement>(".drop-box");
+  let DropMenu2 = document.querySelector<HTMLElement>(".drop-box-2");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= 100) {
+      Header.classList.add("scroll");
+      DropMenu.style.top = "49px";
+      DropMenu2.style.top = "49px";
+      body.style.paddingTop = `${Header.clientHeight}px`
+    } else {
+      Header.classList.remove("scroll");
+      DropMenu.style.top = "55px";
+      DropMenu2.style.top = "55px";
+      body.style.paddingTop = `0px`
+    }
+  });
+</script>
+<!-- drop menu -->
+<script>
+  let dropName = document.querySelector(".drop-name"),
+  
+    DropButton = document.querySelectorAll(".drop-box-2 .nav-link"),
+    DropIconLeft = document.querySelector(".icon-left-2"),
+    DropIconRight = document.querySelector(".icon-right-2");
+
+  dropName.addEventListener("click", () => {
+    dropName.classList.toggle("active");
+    DropIconLeft.classList.toggle("active");
+    DropIconRight.classList.toggle("active");
+    DropButton.forEach((e) => {
+      e.classList.toggle("open");
+    });
+  });
+</script>
+<script>
+  
+  let R_dropName = document.querySelector(".responsive-link .drop-name"),
+      DropIconLeft = document.querySelector(".responsive-link  .icon-left-2"),
+      Menu = document.querySelector(".responsive-link  .drop-box-2"),
+      DropIconRight = document.querySelector(".responsive-link  .icon-right-2");
+        R_dropName.addEventListener("click", () => {
+    R_dropName.classList.toggle("active");
+    Menu.classList.toggle("active");
+    DropIconLeft.classList.toggle("active");
+    DropIconRight.classList.toggle("active");
+         
+  });
+</script>

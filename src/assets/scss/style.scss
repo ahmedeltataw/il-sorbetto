@@ -1,0 +1,64 @@
+@use "../scss/helper/extend" as *;
+@use "../scss/helper/mixin" as *;
+
+
+body {
+    height: 5000px;
+}
+section{
+    @include section(100vh);
+}
+
+.drop {
+    color: var(--main-d);
+    position: relative;
+    list-style: none;
+
+    .down {
+        color: var(--main-d);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        @extend %icon-drop;
+
+    }
+
+    .drop-box {
+        @extend %drop-menu;
+        text-align: center;
+
+        &:hover {
+            .langue {
+                a {
+                    color: #fff;
+                    letter-spacing: .5px;
+                }
+            }
+        }
+    }
+
+    .langue {
+
+        a {
+            color: #c5c5c5;
+            font-weight: 500;
+            transition: .3s ease-in-out;
+        }
+    }
+
+}
+
+//swiper style
+.swiper {
+    width: 100%;
+    height: 100%;
+    .swiper-slide {
+        font-size: 18px;
+        
+        .swiper-slide img {
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}

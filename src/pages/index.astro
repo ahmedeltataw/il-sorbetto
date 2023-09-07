@@ -1,0 +1,11 @@
+---
+import Layout from "../layout/Layout.astro";
+import { t, changeLanguage } from "i18next";
+import Hero from "../components/hero.astro";
+
+changeLanguage("en");
+---
+
+<Layout title={t("webName.home")}>
+    <Hero />
+</Layout>
