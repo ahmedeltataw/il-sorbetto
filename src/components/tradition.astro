@@ -1,0 +1,84 @@
+---
+import MainHeading from "./mainHeading.astro";
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import { Image } from "astro:assets";
+import Button from "./button.astro";
+import Link from "./Link.astro";
+// img
+import img2 from "../assets/image/tradition2.jpg";
+import img3 from "../assets/image/tradition3.jpg";
+import img4 from "../assets/image/tradition4.jpg";
+---
+
+<section class="tradition">
+  <div class="container">
+    <MainHeading title={t("mainHeading.tradition")} />
+    <div class="row gap-1">
+      <!-- details -->
+      <div class="col-7-lg col-12-md order">
+        <div class="details">
+          <p class="fs-r-18"> {t("tradition.des")}</p>
+          <Button title="" aria="button" classes="btn-popup"  style="mt-10" >
+                <Link title={t("tradition.button") } href={localizePath("/")} classes="px-8 py-6 "/>
+          </Button>
+        </div>
+      </div>
+      <!-- img -->
+      <div class="col-5-lg col-12-md">
+        <div class="d-flex align-items-center img-box " data-aos="fade-up"
+                data-aos-duration="1000"
+                 data-aos-offset="200">
+          <div class="img">
+            <Image src={img4} alt="img" quality={50} format="avif" />
+          </div>
+          <div class="two-img">
+            <div class="img-1 img">
+              <Image src={img3} alt="img" quality={50} format="avif" />
+            </div>
+            <div class="img-2 img">
+              <Image src={img2} alt="img" quality={50} format="avif" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style lang="scss">
+  .tradition {
+    .img-box{
+        @media (max-width: 991px){
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+    }
+    .img {
+        
+      img {
+        height: 100%;
+        object-fit: contain;
+        border-radius: 12px;
+      }
+    }
+    .two-img{
+            margin: 0 15px;
+           
+            .img-1 {
+                margin-bottom: 15px;
+             
+            }
+            .img-1, .img-2{
+                max-width: 150px;
+            }
+        }
+        .details{
+            p{
+                line-height: 1.6;
+                color: var(--main-l);
+                opacity: .8;
+               
+            }
+        }
+  }
+</style>

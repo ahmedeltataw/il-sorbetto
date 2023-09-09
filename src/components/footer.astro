@@ -1,0 +1,103 @@
+---
+import MainHeading from "./mainHeading.astro";
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import { Image } from "astro:assets";
+import Button from "./button.astro";
+import Link from "./Link.astro";
+//img
+import img from "../assets/image/logo.png";
+---
+<footer>
+    <div class="container">
+        <div class="f-box">
+            <div class="img">
+                <Image src={img} alt="l" quality={50} format="avif" />
+            </div>
+            <p>Indulge in a scoop of happiness!</p>
+            <ul>
+                <li>
+                    <a href="/"><i class="fa-light fa-headset"></i></a>
+                </li>
+                <li>
+                    <a href="/"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="/"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="copy-right">
+            All rights reserved 2013 © il Sorbetto
+        </div>
+    </div>
+</footer>
+<style lang="scss">
+    footer{
+        background-color: #e8e8e8;
+        min-height: 50vh;
+        border-top-left-radius: 20vh;
+        border-top-right-radius: 20vh;
+        margin-top: 8vh;
+        position: relative;
+        .f-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding-top: 8vh;
+            .img{
+                height: 70px;
+                
+                img{
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            p{
+                color: var(--main-l);
+                opacity: .8;
+                padding: 4vh 0;
+            }
+            ul{
+                display: flex;
+                 align-items: center;
+                li{
+                    background-color: transparent;
+                    border-radius: 8px;
+                    margin:0  5px ;
+                    transition: var(--transition);
+                    a{
+                        padding: 6px 10px;
+                        font-size: 20px;
+                        opacity: .7;
+                        color: var(--main-d);
+                        transition: var(--transition);
+                    }
+                    &:hover{
+                        background-color: var(--main-l);
+                        a{
+                            opacity: 1;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .copy-right{
+            min-height: 8vh;
+            background-color: #d2d2d2;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--main-l);
+            opacity: .8;
+            font-size: 16px;
+        }
+    }
+</style>

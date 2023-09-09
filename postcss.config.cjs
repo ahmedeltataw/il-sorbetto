@@ -4,7 +4,9 @@ module.exports = {
         require("autoprefixer"),
         require("cssnano"),
         require("postcss-pxtorem"),
+
         require('rucksack-css'),
+        
         require('postcss-combine-duplicated-selectors')({ removeDuplicatedProperties: true, removeDuplicatedValues: true }),
         // require('css-declaration-sorter')({ "order": "smacss" }),
         // require('postcss-viewport-height-correction') (({ variable = 'vh' } = {}) => {

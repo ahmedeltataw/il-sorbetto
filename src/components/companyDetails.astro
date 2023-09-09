@@ -1,0 +1,88 @@
+---
+
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+
+import Button from "./button.astro";
+import Link from "./Link.astro";
+// data 
+const companyData = [
+    {
+        tittle: t("company.t1"),
+        des:t("company.des1"),
+        href:"/",
+        btn: t("company.btn1")
+    },
+    {
+        tittle: t("company.t2"),
+        des:t("company.des2"),
+        href:"/",
+        btn: t("company.btn2")
+    },
+    {
+        tittle: t("company.t3"),
+        des:t("company.des3"),
+        href:"/",
+        btn: t("company.btn3")
+    },
+]
+---
+<section class="detailsCompany">
+    <div>
+        <div class="container">
+            <div class="row gap-1">
+                {
+                    companyData.map((card)=>(
+                        <div class=" col-4-lg col-6-md col-12-sm">
+                            <div class="companyCard">
+                                <h5 class="fs-r-30 fw-800 "> {card.tittle} </h5>
+                                <p class="fs-r-18"> {card.des} </p>
+                               <div class="button">
+                                 <Button aria={card.btn} title="" classes="lg-max-mb-10" style="btn-skew" >
+                                     <Link href={localizePath(card.href)}  classes="px-8 py-6" title={card.btn} />
+                                 </Button>
+                               </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<style lang="scss">
+      @import "../assets/scss/helper/_mixin.scss";
+    .detailsCompany{
+        min-height: 70vh;
+        background: url("../assets/image/detailsSection.jpg") no-repeat fixed;
+        background-size: cover;
+        position: relative;
+    &::before {
+      @include overlay(#2e2e2e, .5);
+      backdrop-filter: blur(2px);
+    }
+    .companyCard{
+        position: relative;
+        text-align: center;
+        margin-top: 15vh;
+        height: 50px;
+        h5{
+            margin-bottom: 3vh;
+            color: #fff;
+
+        }
+        p{
+            color: #ebebeb;
+            line-height: 1.6;
+            margin-bottom: 3vh;
+            min-height: 50px;
+        }
+    }
+    @media (max-width:991px){
+        .companyCard{
+            height: auto;
+            margin-top: 5vh;
+        }
+    }
+    }
+</style>

@@ -1,0 +1,60 @@
+---
+import MainHeading from "./mainHeading.astro";
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import Button from "./button.astro";
+import Link from "./Link.astro";
+import Card from "./cardSpecialties.astro"
+// img
+import img1 from "../assets/image/pro1.png"
+import img2 from "../assets/image/pro2.png"
+import img3 from "../assets/image/pro3.webp";
+// data 
+const cardData = [
+    {
+        image: img1,
+        title:t("specialties.card.tittle1"),
+        des: t("specialties.card.des1"),
+        delay:"200",
+    },
+    {
+        image: img2,
+        title:t("specialties.card.tittle2"),
+        des: t("specialties.card.des2"),
+        delay:"400",
+    },
+    {
+        image: img3,
+        title:t("specialties.card.tittle3"),
+        des: t("specialties.card.des3"),
+        delay:"600",
+    },
+]
+---
+<section class="specialties">
+    <div class="container">
+        <MainHeading title={t("mainHeading.specialties")} />
+        <div class="row gap-1">
+            {
+                cardData.map((items)=>(
+                <div class="col-4-lg col-6-md col-12-sm" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-delay={items.delay}  data-aos-offset="250">
+                    <Card img={items.image} title={items.title} des={items.des}  />
+                </div>
+                ))
+            }
+            <div class=" mx-auto">
+                <Button title="" classes="my-12" style="btn-popup" aria="menu">
+                    <Link href={localizePath("/")} title={t("specialties.button")} classes="py-6 px-10"/>
+                </Button>
+            </div>
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    .specialties{
+        background-color: rgba(0, 0, 0, .05);
+        padding-top: 7vh;
+        
+    }
+</style>

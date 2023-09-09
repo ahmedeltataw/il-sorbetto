@@ -1,0 +1,56 @@
+---
+interface Props {
+    title:string,
+  
+}
+const {title } = Astro.props
+---
+<div class="main-heading">
+    <h3 class="fs-r-36 ">{title}</h3>
+</div>
+<style lang="scss">
+    @import "../assets/scss/helper/_mixin.scss";
+    .main-heading{
+        @include mainHeading;
+        
+        h3{
+            position: relative;
+            color: var(--main-d);
+            transition: .3s  .1s ease-in-out;
+            text-transform: uppercase;
+            &::before,&::after{
+                content: '';
+                position: absolute;
+                width: 15px;
+                aspect-ratio: 1;
+                background-color: var(--hover);
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 50%;
+                opacity: 1;
+                transition: .3s ease-in-out;
+            }
+            &::before{
+                
+                left: -25px;
+            }
+            &::after{
+                
+                right: -25px;
+            }
+            &:hover{
+                color: var(--hover);
+                &::before{
+                    left: 0;
+                    opacity: 0;
+                }
+                &::after{
+                    right: 0;
+                    opacity: 0;
+                }
+            }
+        }
+
+    }
+
+</style>

@@ -1,0 +1,76 @@
+---
+interface Props {
+    img?:any;
+    title:string;
+    des:string;
+}
+const {img ,title,des } = Astro.props
+
+// 
+import { Image  } from "astro:assets";
+import Button from "./button.astro";
+import Link from "./Link.astro";
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+---
+<div class="card">
+    <a class="card-img" href={localizePath("/")}>
+        <Image src={img} alt="" format="avif" quality={50} />
+    </a>
+    <div class="card-details">
+        <h4 class="fs-r-30"> {title} </h4>
+        <p class="fs-r-16"> {des} </p>
+        <Button title=""  aria="type-specialties" classes="mb-9" style="btn-popup">
+            <Link href={localizePath("/")} title={t("header.order")} classes="px-8 py-6"/>
+        </Button>
+    </div>
+</div>
+<style lang="scss">
+    .card{
+        background-color: #ffffff;
+        border-radius: 8px;
+            transition:   .3s ease-in-out;
+            margin: 1vh 0;
+        .card-img{
+           background-color: #f4f4f4;
+            height: 250px;
+            width: 100%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            overflow: hidden;
+
+            img{
+                height: 100%;
+                object-fit: contain;
+                transition: transform 1.5s ease-in-out;
+            }
+        }
+        .card-details{
+             margin-top: 2vh;
+            padding: 0 15px;
+            h4{
+                
+                color: var(--hover);
+                text-transform: capitalize;
+                padding-bottom: .5vh;
+            }
+            p{
+                color: var(--main-l);
+                line-height: 1.6;
+                opacity: .9;
+                padding-bottom: 2.5vh;
+            }
+        }
+        &:hover{
+            box-shadow: 0 0 1.25rem 7px rgb(110 110 110 / 20%);;
+            .card-img{
+                img{
+                    transform: scale(1.1);
+                }
+            }
+            
+            }
+
+        }
+    
+</style>

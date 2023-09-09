@@ -3,9 +3,10 @@
 
 
 body {
-    height: 5000px;
+    overflow-x: hidden
 }
-section{
+
+section {
     @include section(100vh);
 }
 
@@ -50,15 +51,110 @@ section{
 }
 
 //swiper style
-.swiper {
+.heroSlider {
     width: 100%;
-    height: 100%;
+    min-height: calc(100vh - 84px);
+
     .swiper-slide {
         font-size: 18px;
-        
+
         .swiper-slide img {
             height: 100%;
             object-fit: contain;
         }
     }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff !important;
+        background-color: transparent;
+        border: 2px solid #fff;
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 50%;
+        transition: .3s;
+        top: 90% !important;
+        margin-top: 0 !important;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: #fff !important;
+            color: var(--main-l) !important;
+
+
+        }
+
+        &::after {
+            font-size: 30px !important;
+        }
+    }
+
+    .swiper-button-prev {
+        left: auto !important;
+        right: 72px !important;
+    }
 }
+
+// flavorsSlider
+.flavorsSlider {
+    width: 100%;
+    height: 40vh;
+
+
+    .swiper-slide {
+
+
+
+        img {
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+// swiper wholesale
+
+.wholesaleSlider {
+width: 300px;
+    height: 400px;
+        @media (max-width:480px){
+            width: 200px;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+                align-items: center;
+                justify-content: center;
+            border-radius: 18px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            width: 100%;
+
+        }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

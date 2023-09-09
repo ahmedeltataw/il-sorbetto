@@ -1,0 +1,39 @@
+---
+import MainHeading from "./mainHeading.astro";
+import { t } from "i18next";
+import { Image } from "astro:assets";
+// img 
+import img1 from "../assets/image/Partners/1.png";
+import img2 from "../assets/image/Partners/2.png";
+import img3 from "../assets/image/Partners/3.png";
+---
+<section class="partners">
+    <div class="container">
+        <MainHeading title={t("mainHeading.Partners")} />
+        <div class="row gap-1">
+            <div class="col-3-lg col-6-md col-12-sm md-max-mb-12">
+                <Image src={img1} alt="img" format="avif" />
+            </div>
+            <div class="col-3-lg col-6-md col-12-sm md-max-mb-12">
+                <Image src={img1} alt="img" format="avif" />
+            </div>
+            <div class="col-3-lg col-6-md col-12-sm md-max-mb-12">
+                <Image src={img1} alt="img" format="avif" />
+            </div>
+            <div class="col-3-lg col-6-md col-12-sm md-max-mb-12">
+                <Image src={img1} alt="img" format="avif" />
+            </div>
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    section{
+        min-height: 50vh;
+    }
+    img{
+        height: 100%;
+        object-fit: contain;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+</style>

@@ -23,5 +23,85 @@
     "hero":{
         "title":"Fresh flavors for all palates",
         "des":"Do you like strawberry, banana or lemon? It doesn't matter, we have a wide variety of different flavors and foods to satisfy all tastes"
+    },
+    "mainHeading":{
+        "tradition":"our  tradition",
+        "specialties":"our  specialties ",
+        "flavor":"our  flavor ",
+        "wholesale":"wholesale",
+        "Partners":"our Partners",
+        "about":"Who are we?",
+        "review":"clients opinions"
+    },
+    "tradition":{
+        "des":"Our Tradition: Crafting Authentic Gelato with Nature's Best Discover the heart of our gelato legacy at Il Sorbetto. We stand firm in our commitment to tradition, creating artisanal gelato that brings joy with every spoonful. Pure Ingredients for Pure Enjoyment We believe in quality without compromise. Our gelato is made from carefully selected natural ingredients, free from preservatives, artificial aromas, and chemicals. Our Madagascar Bourbon vanilla and premium cocoa powder, with a purity level of 22/24, add unparalleled depth to our flavors. Nature's Bounty in Every Bite: Fruit Sorbets Experience the true essence of fruit in our sorbets. We use the freshest, ripest fruits to craft these delightful treats, ensuring that each scoop is a burst of real fruit goodness. Crafted with Care: Pasteurization and HACCP Your safety and satisfaction are paramount. Our milk-based gelato undergoes pasteurization, guaranteeing safety while preserving flavor. Our adherence to HACCP standards ensures meticulous attention at every step. Embrace Tradition, Savor Happiness At IL sorbetto, we invite you to savor tradition, where gelato-making is an art passed down through time. Join us in celebrating natural ingredients and exceptional craftsmanship, one scoop of happiness at a time.",
+        "button":"know us"
+    },
+    "specialties":{
+        "card":{
+            "tittle1":"gelatto",
+            "tittle2":"ice cream",
+            "tittle3":"Coffee",
+            "des1":"Our ice cream is made daily so that we’re able to change flavors regularly and introduce new flavors seasonally.",
+            "des2":"Our ice cream is made daily so that we’re able to change flavors regularly and introduce new flavors seasonally.",
+            "des3":"We offer lattes, drip coffee, and our signature Hot Shakes using scoops of your favorite ice cream flavors"
+            
+        },
+        "button":"Explore  Menu "
+    },
+    "company":{
+        "t1":"Catering",
+        "t2":"Have a question?",
+        "t3":"Order IL Sorbetto  Ice Cream",
+        "des1":"Make your special events, ever more special with our catering services.",
+        "des2":"Contact us today for questions and concerns",
+        "des3":"Your favorite flavors to your door Frozen delivery is guaranteed",
+        "btn1":"Read More",
+        "btn2":"Contact Us",
+        "btn3":"Order Now"
+
+    },
+    "About":{
+        "tittle":{
+            "t1":"Experience of more than ",
+            "t2":"years"
+        },
+        "des":"Il Sorbetto was originally born in 2013 and was probably the only company at the time making authentic Italian gelato (ice cream) in Qatar. Our tradition still continues today, even though we have introduced a new product range, namely cakes, sandwiches, shakes, smoothies and coffee. We have evolved into a truly Italian style cafeteria, entertaining our beloved and loyal customers from breakfast to dinner with an array of delicious products.",
+        "button":"Read on"
+    },
+    "flavor":{
+        "des":"Our regular flavors include : vanilla, chocolate, strawberry, hazelnut, pistachio, caramel, coffee, mix berries, blueberry, blackberry, raspberry, snickers, Oreo, stracciatella (black and white), lemon sorbet, mango sorbet, biscuit, pine seed, macadamia, tiramisu. Proudly we can state to be the only gelato (ice cream) company in Doha who is able to customize any flavor up to the individual requirement, in fact << we will make any flavor so long as we can find the ingredient >>. Special creations include : cinnamon, papaya sorbet, mandarin and clove sorbet, Turkish doundurma, dates and honey, sahlap, mastica, saffron, green tea sorbet, parmigiano, olive oil, lemon grass, passion fruit sorbet, pomegranate and hibiscus, rose water, caramel baklawa If you wish a gelato made to your personal taste, please contact us directly, minimum quantity and deliveries to be arranged ad-hoc basis",
+        "type":{
+            "t1":"strawberry",
+            "t2":"Lime",
+            "t3":"Leimon",
+            "t4":"Vanilla",
+            "t5":"Mango",
+            "t6":"Checolate",
+            "t7":"Redberry",
+            "t8":"Coconut",
+            "t9":"Caramel",
+            "t10":"Pistachio"
+        }
+    },
+    "wholesale":{
+        "des":"Get ready for an unforgettable experience with our unique wholesale ice cream shop! We offer you a great opportunity to make your ice cream business successful and satisfy your customers' appetites in a delicious and profitable way. Whatever your needs, we provide you with a wide range of delicious and innovative flavors to suit all tastes. Whether you're looking for delicious classics like vanilla and chocolate, or want to introduce new and exciting innovations like fresh fruits and different desserts, we offer you a wide assortment of delicious options. We guarantee high quality in every cup of ice cream that we serve. We use fresh and natural ingredients, and follow the highest standards of health and safety in our operations. We believe that an ice cream experience should be delicious and healthy at the same time. Our professional and creative team is ready to assist you in all aspects of your business. Whether you need guidance in choosing the right flavors or designing attractive packaging, we are here to support you and help you achieve your success. Join us today and have a wonderful experience in the world of wholesale ice cream. Make your shop an irresistible place for ice cream lovers and let your business flourish with success and customer satisfaction"
+    },
+    "review":{
+        "n1":"ahmed eltatawy",
+        "n2":"mohamed gmail",
+        "n3":"aya ali",
+        "n4":"Ahmed Tareq",
+        "c1":"Love! I tried a captain crunch specialty and it was so tasty I got it as one of my two flavors (I almost always a chocolate based ice cream or sorbet person but it was so tasty I had to get it)!",
+        "c2":"Such delicious ice cream here! One of my favorites in the world. Make sure to get the chocolate and berries, as well as the lemon!",
+        "c3":"Great staff, great vegan options, great coffee! What more does anyone need? I had the vegan chocolate chip cookie icecream sandwhich with the banana nutella vegan icecream!",
+        "c4":"Came on New Year's eve, the man working at the front was so nice and inviting. The ice cream was excellent too. Will definitely be back"
+
+    },
+    "contact":{
+        "title":"Contact Information",
+        "des":"Contact us at any time and we will respond to you quickly",
+        "location":"Building No. 55, Street No. 808 Jawaan, Al Sadd District No. 39"
     }
+    
 }

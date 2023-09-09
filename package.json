@@ -22,10 +22,12 @@
     "sharp": "^0.32.5"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "autoprefixer": "^10.4.15",
     "css-declaration-sorter": "^7.0.3",
     "cssnano": "^6.0.1",
     "mqpacker": "^7.0.0",
+    "postcss": "^8.4.29",
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "postcss-pxtorem": "^6.0.0",
     "rucksack-css": "^1.0.2",

@@ -1,0 +1,77 @@
+---
+import MainHeading from "./mainHeading.astro";
+import { t } from "i18next";
+import { Image } from "astro:assets";
+
+// img
+import img1 from "../assets/image/wholesale/1.webp";
+import img2 from "../assets/image/wholesale/2.webp";
+import img3 from "../assets/image/wholesale/3.webp";
+import img4 from "../assets/image/wholesale/4.webp";
+import img5 from "../assets/image/wholesale/5.webp";
+import img6 from "../assets/image/wholesale/6.webp";
+import img7 from "../assets/image/wholesale/7.webp";
+import img8 from "../assets/image/wholesale/8.webp";
+---
+
+<section class="wholesale">
+  <div class="container">
+    <MainHeading title={t("mainHeading.wholesale")} />
+    <div class="row gap-1">
+      <!-- details -->
+      <div class="col-7-lg col-12-md col-12-sm order">
+        <div class="details">
+            <p class="fs-r-18"> {t("wholesale.des")} </p>
+        </div>
+      </div>
+      <!-- img -->
+      <div class="col-5-lg col-12-md col-12-sm">
+        <div class="swiper wholesaleSlider swiper-cards swiper-3d">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <Image src={img1} alt=""  quality={50} format="avif"/>
+            </div>
+            <div class="swiper-slide">
+                <Image src={img2} alt=""  quality={50} format="avif"/>
+            </div>
+            <div class="swiper-slide">
+                <Image src={img3} alt=""  quality={50} format="avif"/>
+            </div>
+            <div class="swiper-slide">
+                <Image src={img4} alt=""  quality={50} format="avif"/>
+            </div>
+            <div class="swiper-slide">
+                <Image src={img5} alt=""  quality={50} format="avif"/>
+            </div>
+            <div class="swiper-slide">
+                <Image src={img6} alt=""  quality={50} format="avif"/>
+            </div>
+            <div class="swiper-slide">
+                <Image src={img7} alt=""  quality={50} format="avif"/>
+            </div>
+            <div class="swiper-slide">
+                <Image src={img8} alt=""  quality={50} format="avif"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style lang="scss">
+    .wholesale{
+        
+        p{
+            line-height: 1.6;
+            color: var(--main-l);
+            @media (max-width:991px){
+                padding: 5vh 0;
+            }
+        }
+        img{
+            object-fit: cover;
+            height: 100%;
+            border-radius: 18px;
+        }
+    }
+</style>

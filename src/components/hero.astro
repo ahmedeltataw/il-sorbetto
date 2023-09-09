@@ -6,87 +6,149 @@ import { Image } from "astro:assets";
 import Link from "./Link.astro";
 import Button from "./button.astro";
 //image
-import img1 from "../assets/image/hero/3.jpg"
+import img1 from "../assets/image/hero/3.jpg";
+import img2 from "../assets/image/hero/2.jpg";
 ---
-<section class="hero">
-    
-<div class="container">
-         <div class="swiper heroSlider">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-                <div class="row gap-1 ">
-                    
-                    <div class="col-6-md col-12-sm">
-                        <div class="details">
-                            <h2 class="title fs-r-60"> {t("hero.title")} </h2>
-                            <p class="des fs-r-24"> {t("hero.des")} </p>
-                            <div class="button mt-12">
-                                <Button aria="a" classes="btn-popup" title="" style="">
-                                    <Link href={localizePath("/order/")} classes="px-8 py-6 fs-20" title={t("header.order")} />
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-6-md col-12-sm">
-                        <div class="hero-img">
-                            <Image src={img1} alt="slider-img" format="avif" quality={50} />
-                        </div>
-                    </div>
+<section class="hero">
+  <div class="swiper heroSlider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="container">
+          <div class="row gap-1">
+            <div class="col-6-lg col-12-md col-12-sm order">
+              <div
+                class="details"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-delay="500"
+              >
+                <h1 class="title fs-r-60">{t("hero.title")}</h1>
+                <p class="des fs-r-24">{t("hero.des")}</p>
+                <div class="button mt-12">
+                  <Button
+                    aria="a"
+                    classes="btn-popup"
+                    title=""
+                    style="lg-max-mb-12"
+                  >
+                    <Link
+                      href={localizePath("/order/")}
+                      classes="px-8 py-6 fs-20"
+                      title={t("header.order")}
+                    />
+                  </Button>
                 </div>
-          </div>
-          <div class="swiper-slide">
-                a
-          </div>
-          <div class="swiper-slide">
-                a
+              </div>
+            </div>
+
+            <div class="col-6-lg col-12-md col-12-sm">
+              <div
+                class="hero-img"
+                data-aos="fade-down"
+                data-aos-duration="1000"
+                data-aos-delay="500"
+              >
+                <Image src={img1} alt="slider-img" format="avif" quality={50} />
+              </div>
+            </div>
           </div>
         </div>
-        <div class="swiper-pagination"></div>
       </div>
-</div>
+      <div class="swiper-slide">
+        <div class="container">
+          <div class="row gap-1">
+            <div class="col-6-lg col-12-md col-12-sm order">
+              <div
+                class="details"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-delay="500"
+              >
+                <h1 class="title fs-r-60">{t("hero.title")}</h1>
+                <p class="des fs-r-24">{t("hero.des")}</p>
+                <div class="button mt-12">
+                  <Button
+                    aria="a"
+                    classes="btn-popup"
+                    title=""
+                    style="lg-max-mb-12"
+                  >
+                    <Link
+                      href={localizePath("/order/")}
+                      classes="px-8 py-6 fs-20"
+                      title={t("header.order")}
+                    />
+                  </Button>
+                </div>
+              </div>
+            </div>
 
+            <div class="col-6-lg col-12-md col-12-sm">
+              <div
+                class="hero-img"
+                data-aos="fade-down"
+                data-aos-duration="1000"
+                data-aos-delay="500"
+              >
+                <Image src={img2} alt="slider-img" format="avif" quality={50} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
 </section>
 <style lang="scss">
-    @import "../assets/scss/helper/_mixin.scss";
-    .hero{
-        padding-top: 0;
-        min-height: calc(100vh - 84px);
-        background: url("../assets/image/hero/full.webp") no-repeat center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        &::before{
-            @include overlay( #2e2e2e, .55);
-        }
-        .swiper-slide{
-            padding-top: 22vh;
-        }
-        .hero-img{
-            position: relative;
-            
-            img{
-                object-fit: contain;
-                height: 100%;
-                mask-image: url("../assets/image/hero/splash.png") ;
-                mask-position: center ;
-                mask-repeat:no-repeat;
-                mask-size: cover;
-            }
-        }
-        .details{
-            .title{
-                line-height: 1.2;
-                color: #fff;
-                margin-bottom: 2vh;
-            }
-            .des{
-                color: #fff;
-                line-height: 1.5;
-                max-width: 600px;
-                width: 100%;
-                opacity: .8;
-            }
-        }
+  @import "../assets/scss/helper/_mixin.scss";
+  .hero {
+    padding-top: 0;
+    min-height: calc(100vh - 84px);
+    background: url("../assets/image/hero/bn3.3.webp") no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    &::before {
+      @include overlay(#2e2e2e, 0.6);
+      backdrop-filter: blur(2px);
     }
+    .swiper-slide {
+      padding-top: 22vh;
+      @media (max-width: 991px) {
+        padding-top: 12vh;
+      }
+    }
+    .hero-img {
+      position: relative;
+      @media (max-width: 991px) {
+        margin-bottom: 5vh;
+      }
+      img {
+        object-fit: contain;
+        height: 100%;
+        mask-image: url("../assets/image/hero/shap.png");
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+      }
+    }
+    .details {
+      .title {
+        line-height: 1.2;
+        color: #fff;
+        margin-bottom: 2vh;
+      }
+      .des {
+        color: #fff;
+        line-height: 1.5;
+        max-width: 600px;
+        width: 100%;
+        opacity: 0.8;
+      }
+    }
+    
+  }
 </style>

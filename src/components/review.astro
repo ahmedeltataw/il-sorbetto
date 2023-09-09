@@ -1,0 +1,98 @@
+---
+import MainHeading from "./mainHeading.astro";
+import { t } from "i18next";
+
+//img
+import img1 from "../assets/image/clicnt/1.jpg";
+import img2 from "../assets/image/clicnt/2.jpg";
+import img3 from "../assets/image/clicnt/3.jpg";
+import img4 from "../assets/image/clicnt/user.jpg";
+//data card
+const reviewCard = [
+  {
+    name: t("review.n1"),
+    commit: t("review.c1"),
+    img: img1,
+  },
+  {
+    name: t("review.n2"),
+    commit: t("review.c2"),
+    img: img2,
+  },
+  {
+    name: t("review.n3"),
+    commit: t("review.c3"),
+    img: img3,
+  },
+  {
+    name: t("review.n4"),
+    commit: t("review.c4"),
+    img: img4,
+  },
+];
+---
+
+<section class="review">
+  <div class="container">
+    <MainHeading title={t("mainHeading.review")} />
+    <div class="swiper reviewSlider">
+      <div class="swiper-wrapper">
+        {
+          reviewCard.map((e) => (
+            <div class="swiper-slide">
+              <div class="review-box">
+                <div class="top-box d-flex align-items-center justify-space-between">
+                  
+                  <div class="rate d-flex align-items-center">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star" />
+                    <i class="fa-solid fa-star" />
+                    <i class="fa-solid fa-star" />
+                    <i class="fa-solid fa-star" />
+                  </div>
+                  <p class="name"> {e.name} </p>
+                </div>
+                <p class="commit"> {e.commit} </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      
+    </div>
+  </div>
+</section>
+<style lang="scss">
+  section{
+    min-height: 70vh;
+  }
+  .review-box{
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 20px 15px;
+    height: 220px;
+    .top-box {
+      margin-bottom: 3vh;
+      .name{
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: capitalize;
+
+        color: var(--main-d);
+      }
+      .rate{
+        i{
+          padding-right: 1.2px;
+          font-size: 16px;
+          color: gold;
+        }
+      }
+    }
+    .commit{
+      font-size: 16px;
+      color: var(--main-l);
+      opacity: .8;
+      line-height: 1.6;
+    }
+  }
+</style>

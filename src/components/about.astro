@@ -1,0 +1,78 @@
+---
+import MainHeading from "./mainHeading.astro";
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import { Image } from "astro:assets";
+import Button from "./button.astro";
+import Link from "./Link.astro";
+// img 
+import img1 from "../assets/image/hero/3.jpg";
+import img2 from "../assets/image/tradition3.jpg";
+---
+<section class="brief">
+
+    <div class="container">
+        <MainHeading title={t("mainHeading.about")} />
+        <div class="row gap-1">
+            <!-- details -->
+            <div class="col-5-lg col-12-md col-12-sm order">
+                <div class="details" data-aos="fade-up-right"
+                data-aos-duration="1000"
+                data-aos-delay="100"
+                 >
+                    <h2 class="fs-r-36 mb-10 fw-800 lg-max-mt-10">{t("About.tittle.t1")} <br> <span>10 </span> {t("About.tittle.t2")}</h2>
+                    <p class="fs-r-18"> {t("About.des")} </p>
+                    <Button title="" classes="mt-12 lg-max-mb-10" aria={t("About.button")} style="btn-popup" >
+                        <Link title={t("About.button")} href={localizePath("/")} classes="px-10 py-8" />
+                    </Button>
+                </div>
+            </div>
+            <!-- img -->
+            <div class="col-7-lg col-12-md col-12-sm">
+                <div class="box-img relative " data-aos="fade-up-left"
+                data-aos-duration="1000"
+                 data-aos-delay="150">
+                    <Image src={img1} alt="img" quality={50} format="avif"/> 
+                    <div class="img-1  absolute ">
+                        <Image src={img2} alt="img" quality={50} format="avif"/> 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    .brief{
+     .box-img{
+        img{
+            height: 100%;
+            object-fit: contain;
+             border-radius: 8px;
+        }
+        .img-1{
+            max-height: 250px;
+            height: 100%;
+            box-shadow: 13px 8px 1rem 0px #48484842;
+            border-radius: 8px;
+            
+            top: 30px;
+
+            
+        }
+        
+
+    }
+    }
+    h2{
+        color: var(--main-l);
+        line-height: 1.5;
+        span{
+            color: var(--hover);
+        }
+    }
+    p{
+        line-height: 1.8;
+        opacity: .7;
+    }
+</style>
