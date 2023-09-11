@@ -1,0 +1,112 @@
+---
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import Button from "./button.astro";
+import Link from "./Link.astro";
+//
+import { getCollection } from "astro:content";
+const menuPage = await getCollection("menu");
+const otherLink = [
+    {
+        title:"header.wholesale",
+        href:"/"
+    },
+    {
+        title:"header.story",
+        href:"/"
+    },
+    {
+        title:"header.order",
+        href:"/"
+    },
+    {
+        title:"header.contact",
+        href:"/"
+    },
+]
+---
+
+<aside>
+  <div class="side-top text-center mt-12">
+    <Button aria={t("header.order")} title="" classes="mt-12" style="btn-popup">
+      <Link
+        href={localizePath("/")}
+        title={t("header.order")}
+        classes="fs-r-20 px-10 py-8"
+      />
+    </Button>
+  </div>
+  <div class="side-middel mt-12">
+    <div class="sideBar-links tags">
+      <p class="title fs-r-20 fw-700">{t("sideBar.t1")}</p>
+      {
+        menuPage.map((page) =>
+          page.data.tags.map((e) => <span class="round-full"> {t(e)} </span>)
+        )
+      }
+    </div>
+  </div>
+  <div class="side-bottom">
+        <ul class="sideBar-links ">
+      <p class="title fs-r-20 fw-700">{t("sideBar.t2")}</p>
+      {
+        menuPage.map((page) =>
+            <li> <a href={localizePath(`/menu/${page.slug}/`)}> {t(page.data.title)}  </a>  </li>
+        )
+      }
+    </ul>
+  </div>
+  <div class="side-bottom">
+        <ul class="sideBar-links ">
+      <p class="title fs-r-20 fw-700">{t("sideBar.t3")}</p>
+      {
+        otherLink.map((page) =>
+            <li> <a href={localizePath(page.href)}> {t(page.title)}  </a>  </li>
+        )
+      }
+    </ul>
+  </div>
+</aside>
+<style lang="scss">
+ 
+  span {
+    display: inline-block;
+    background-color: rgb(210, 210, 210);
+    margin-right: 5px;
+    height: 30px;
+    padding: 0 18px;
+    margin-bottom: 1.5vh;
+    color: var(--main-l);
+    line-height: 1.9rem;
+    opacity: .7;
+    transition: var(--transition);
+    &:hover{
+        opacity: 1;
+    }
+  }
+  .title {
+    padding-bottom: 2.5vh;
+    text-transform: uppercase;
+    color: var(--main-l);
+  }
+  .side-middel , .side-bottom {
+    padding: 20px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 18px;
+    margin-bottom: 2.5vh;
+  }
+  li {
+    a{
+        font-size: 16px;
+        color: var(--main-l);
+        opacity: .8;
+        transition: var(--transition);
+        padding-bottom: 1.8vh;
+        text-transform: capitalize;
+        &:hover{
+            color: var(--hover);
+        }
+    }
+  }
+
+</style>

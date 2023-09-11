@@ -1,0 +1,16 @@
+---
+import { t, changeLanguage } from "i18next";
+import Layout from "../layout/Layout.astro";
+import Banner from "../components/BannerSection.astro";
+import Wholesales from "../components/wholesale.astro";
+import Form from "../components/form.astro";
+import Partners from "../components/Partners.astro";
+export const prerender = true;
+changeLanguage("en");
+---
+<Layout title={t("webName.wholesale")}>
+    <Banner title={t("header.wholesale")} />
+    <Wholesales />
+    <Form />
+    <Partners />
+</Layout>

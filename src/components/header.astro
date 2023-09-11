@@ -11,7 +11,9 @@ import Link from "./Link.astro";
 import Button from "./button.astro";
 //image
 import logo from "../assets/image/logo.png";
-
+//
+import {  getCollection } from 'astro:content';
+const menuPage = await getCollection("menu")
 //data
 const NavData = [
   {
@@ -29,23 +31,10 @@ const NavData = [
   },
   {
     title: t("header.contact"),
-    href: "/contact/",
+    href: "/contactUs/",
   },
 ];
-const menuData = [
-  {
-    title: t("menu.products"),
-    path: "#/",
-  },
-  {
-    title: t("menu.gelatto"),
-    path: "#/",
-  },
-  {
-    title: t("menu.iceCream"),
-    path: "#/",
-  },
-];
+
 
 ---
 
@@ -77,12 +66,13 @@ const menuData = [
           </p>
 
           <ul class="drop-box-2">
+
             {
-              menuData.map((li) => (
+              menuPage.map((li) => (
                 <li class="nav-link">
                   <Link
-                    title={li.title}
-                    href={localizePath(li.path)}
+                    title={t(li.data.title)}
+                    href={localizePath(`/menu/${li.slug}/`)}
                     classes="fs-16 pl-12 fw-700 "
                   />
                 </li>
@@ -122,11 +112,11 @@ const menuData = [
 
         <ul class="drop-box-2">
           {
-            menuData.map((li) => (
+            menuPage.map((li) => (
               <li class="nav-link">
                 <Link
-                  title={li.title}
-                  href={localizePath(li.path)}
+                  title={t(li.data.title)}
+                  href={localizePath(`/menu/${li.slug}/`)}
                   classes="fs-16  fw-700 "
                 />
               </li>

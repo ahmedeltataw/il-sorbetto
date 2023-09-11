@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^1.0.0",
+    "@astrojs/node": "^6.0.0",
     "@fortawesome/fontawesome-free": "^6.4.2",
     "aos": "^3.0.0-beta.6",
     "astro": "^3.0.8",

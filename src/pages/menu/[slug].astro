@@ -1,0 +1,47 @@
+---
+import { getCollection , type CollectionEntry } from "astro:content";
+import { t, changeLanguage } from "i18next";
+export const prerender = true;
+// my components
+import Layout from "../../layout/Layout.astro";
+import Banner from "../../components/BannerSection.astro";
+import SlidBar from "../../components/slidBar.astro";
+
+changeLanguage("en");
+
+export async function getStaticPaths() {
+    const menuPage = await getCollection("menu");
+    
+    
+    return menuPage.map((page) => ({
+        
+            params: { slug: page.slug },
+            props: { page }
+        
+   
+    }));
+}
+
+
+interface Props {
+    page: CollectionEntry<"menu">;
+}
+const { page } = Astro.props;
+const { Content } = await page.render();
+---
+
+
+<Layout title={t(page.data.webName)}>
+    <Banner title={t(page.data.title)} />
+    <div class="container">
+        <div class="row gap-1 align-items-start">
+        
+        <div class="col-4-lg col-12-sm">
+            <SlidBar />
+        </div>
+        <div class="col-8-lg col-12-sm">
+            <Content />
+        </div>
+    </div>
+    </div>
+</Layout>

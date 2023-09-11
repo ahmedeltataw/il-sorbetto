@@ -1,0 +1,113 @@
+---
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import { Image } from "astro:assets";
+import Link from "./Link.astro";
+import Button from "./button.astro";
+---
+
+<section class="from">
+  <div class="container">
+    <form action="#">
+        <h6 class="title-from"> {t("wholesale.title")} </h6>
+      <div class="row gap-1">
+        <div class="col-12-lg col-12-md col-12-sm">
+          <div class="form-group">
+            <label for="username"> {t("form.la1")}</label>
+            <input type="text" id="username" />
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-6-lg col-12-md col-12-sm">
+          <div class="form-group">
+            <label for="email"> {t("form.la2")}</label>
+            <input type="email" id="email" />
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-6-lg col-12-md col-12-sm">
+          <div class="form-group">
+            <label for="number"> {t("form.la3")}</label>
+            <input type="number" id="number" />
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-12-lg col-12-md col-12-sm">
+          <div class="form-group">
+            <label for="massage"> {t("form.la4")}</label>
+            <textarea name="massage" id="massage"></textarea>
+          </div>
+        </div>
+        <div class="col-12-lg col-12-md col-12-sm">
+            <div class="button">
+                <button type="submit" class="btn btn-popup py-7 px-9  round-full"> {t("form.button")} </button>
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!--  -->
+<style lang="scss">
+    @import "../assets/scss/helper/_mixin.scss";
+    section{
+        padding-top: 0;
+        min-height: 70vh;
+    }
+    form{
+        border-radius: 18px;
+        width: 1000px;
+        max-width: 100%;
+        margin: 0 auto;
+        height: 100%;
+        padding: 30px;
+        .form-group{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 3vh;
+            input , textarea{
+                @include input;
+                border: 0;
+                border-bottom: 1px solid #c0c0c0;
+                border-radius: 0;
+                font-size: 14px;
+                &:focus{
+                    border-color:  var(--main-d) !important;
+                    outline: 0;
+                }
+            }
+            input{
+                height: 40px;
+            }
+            textarea{
+                height: 80px;
+            }
+            label{
+                font-size: 16px;
+                color: var(--main-l);
+                opacity: .8;
+                padding-bottom: 2vh;
+                
+            }
+        }
+        h6{
+            text-align: center;
+            font-size: 30px;
+            // font-weight: 800;
+            margin-bottom: 8vh;
+            color: var(--main-l);
+        }
+           .btn-popup{
+        background-color: var(--main-l);
+        color: #fff;
+        &::before{
+            background-color: var(--hover);
+        }
+    }
+        .button{
+            @include flex;
+            justify-content: center;
+            margin-top: 3vh;
+        }
+    }
+</style>

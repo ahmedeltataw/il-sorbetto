@@ -1,0 +1,16 @@
+---
+import { t, changeLanguage } from "i18next";
+import Layout from "../layout/Layout.astro";
+import Banner from "../components/BannerSection.astro";
+import Tradition from "../components/tradition.astro";
+import About from "../components/about.astro";
+import Partners from "../components/Partners.astro";
+export const prerender = true;
+changeLanguage("en");
+---
+<Layout title={t("webName.story")}>
+    <Banner title={t("header.story")} />
+    <About />
+    <Tradition />
+    <Partners />
+</Layout>

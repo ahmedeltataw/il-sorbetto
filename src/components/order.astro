@@ -1,0 +1,43 @@
+---
+import MainHeading from "./mainHeading.astro";
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import { Image } from "astro:assets";
+import Button from "./button.astro";
+import Link from "./Link.astro";
+// img 
+import img1 from "../assets/image/hero/3.jpg";
+import img2 from "../assets/image/tradition3.jpg";
+---
+<section class="order">
+
+    <div class="container">
+        <MainHeading title={t("header.order")} />
+            <div class="details" data-aos="fade-up-right"
+                data-aos-duration="1000"
+                data-aos-delay="100"
+                 >
+                    <h2 class="fs-r-30 mb-10 fw-800 lg-max-mt-10">{t("order.t1")} </h2>
+                    <p class="fs-r-18"> {t("order.des")} </p>
+                    
+            </div>
+    </div>
+</section>
+<style lang="scss">
+    
+    .order{
+        min-height:80vh;
+    }
+    h2{
+        color: var(--main-l);
+        line-height: 1.5;
+        text-transform:capitalize ;
+        span{
+            color: var(--hover);
+        }
+    }
+    p{
+        line-height: 1.8;
+        opacity: .7;
+    }
+</style>

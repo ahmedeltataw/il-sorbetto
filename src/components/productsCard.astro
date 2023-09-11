@@ -1,0 +1,124 @@
+---
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+import Button from "./button.astro";
+import { Image } from "astro:assets";
+//
+interface Props {
+  title: string;
+  img?: any;
+
+  type: string;
+  
+}
+const { title, img, type } = Astro.props;
+---
+
+
+      <div class="card-products">
+            <a class="img-card" href="#">
+                <Image src={img} alt={type} format="avif" quality={50} />
+            </a>
+            <div class="details">
+                <a class="title" href="/">{t(title)}</a>
+                <a class="type" href="/">{t(type)}</a>
+            </div>
+            <div class="button">
+                <Button title="" aria="" classes="round-full" style="btn-skew" >
+                    <a href={localizePath("/")}>  <i class="fa-regular fa-cart-shopping"></i>  </a>
+                </Button>
+                <Button title="" aria="" classes="" style="btn-skew" >
+                    <a href={localizePath("/")}>  {t("button")}    </a>
+                </Button>
+            </div>
+      </div>
+
+
+
+
+<style lang="scss">
+  @import "../assets/scss/helper/_mixin.scss";
+  .card-products {
+    // background-color: rgb(238, 238, 238);
+    
+    border-radius: 18px;
+    margin-bottom: 3vh;
+    transition: .4s ease-in-out;
+    
+    .img-card {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+      
+      &::before {
+        @include overlay(#2e2e2e, 0.3);
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+        top: -100%;
+        transition: .3s ease-in-out;
+      }
+      img {
+        transition: 5s ease-in-out;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    .details {
+      text-align: center;
+      margin-bottom: 3vh;
+       padding: 5px;
+      a{
+        display: block;
+      }
+      .title {
+        font-size: 20px;
+        transition: var(--transition);
+        color: var(--main-d);
+        text-transform: capitalize;
+        margin-bottom: 10px;
+      }
+      .type {
+        color: var(--main-l);
+        opacity: 0.8;
+        text-transform: capitalize;
+      }
+    }
+    .button {
+         padding: 5px;
+      @include flex;
+      margin: 2vh 0;
+      justify-content: space-around;
+      visibility: hidden;
+      transition: var(--transition);
+      opacity: 0;
+      a {
+        padding: 10px ;
+        text-align: center;
+      }
+    }
+    &:hover{
+    
+        
+        box-shadow: 0 0 20px #271d1d24;
+        .button{
+            visibility: visible;
+            opacity: 1;
+        }
+        .img-card{
+            &::before{
+                top: 0;
+            }
+            img{
+                transform: scale(1.2);
+            }
+        }
+        .details{
+            .title {
+            color: var(--hover);
+        }
+        }
+        
+    }
+  }
+
+</style>
