@@ -1,0 +1,29 @@
+---
+import Layout from "../../layout/Layout.astro";
+import { t, changeLanguage } from "i18next";
+import Hero from "../../components/hero.astro";
+import Tradition from "../../components/tradition.astro";
+import Specialties from "../../components/specialties.astro";
+import CompanyDetails from "../../components/companyDetails.astro";
+import About from "../../components/about.astro";
+import Flavor from "../../components/flavor.astro";
+import Wholesale from "../../components/wholesale.astro";
+import Partners from "../../components/Partners.astro";
+import Review from "../../components/review.astro";
+import Map from "../../components/map.astro";
+
+changeLanguage("ar");
+---
+
+<Layout title={t("webName.home")}>
+    <Hero />
+    <About />
+    <Specialties />
+    <Tradition />
+    <CompanyDetails />
+    <Flavor />
+    <Wholesale />
+    <Review />
+    <Partners />
+    <Map />
+</Layout>

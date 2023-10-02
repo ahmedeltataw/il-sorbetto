@@ -12,7 +12,8 @@
   "dependencies": {
     "@astrojs/mdx": "^1.0.0",
     "@astrojs/netlify": "^3.0.2",
-    "@astrojs/node": "^6.0.0",
+    "@astrojs/node": "^6.0.2",
+    "@astrojs/vercel": "^5.0.1",
     "@fortawesome/fontawesome-free": "^6.4.2",
     "aos": "^3.0.0-beta.6",
     "astro": "^3.0.8",
@@ -25,7 +26,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",
-    "autoprefixer": "^10.4.15",
+    "autoprefixer": "^10.4.16",
     "css-declaration-sorter": "^7.0.3",
     "cssnano": "^6.0.1",
     "mqpacker": "^7.0.0",

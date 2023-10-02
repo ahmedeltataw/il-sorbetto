@@ -1,0 +1,25 @@
+---
+import { t, changeLanguage } from "i18next";
+import Layout from "../../layout/Layout.astro";
+import Banner from "../../components/BannerSection.astro";
+import Map from "../../components/map.astro";
+import Form from "../../components/form.astro";
+
+changeLanguage("ar");
+---
+<Layout title={t("webName.contact")}>
+    <Banner title={t("header.contact")} />
+    <Map />
+    <Form />
+</Layout>
+<script>
+    let title = document.querySelector(".title-from");
+    let html = document.documentElement
+    if (html.getAttribute("lang") == "en") {
+        title.innerText = " Contact Us ";
+    } else{
+        title.innerText = "  تواصل معانا ";
+    }
+    
+    title.style.paddingTop = "25px";
+</script>
