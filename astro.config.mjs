@@ -1,18 +1,11 @@
-import { defineConfig, sharpImageService } from 'astro/config';
-// import purgecss from "astro-purgecss";
-
 import compressor from "astro-compressor";
 import astroI18next from "astro-i18next";
 import mdx from "@astrojs/mdx";
-
-import node from "@astrojs/node";
+import { defineConfig, squooshImageService } from "astro/config";
+import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-  // output: 'server',
-  // adapter: node({
-  //   mode: 'standalone',
-  // }),
   build: {
     assets: '_assets'
   },
@@ -20,7 +13,7 @@ export default defineConfig({
     optimizeHoistedScript: true
   },
   image: {
-    service: sharpImageService(),
+    service: squooshImageService(),
     domains: ["astro.build"]
   },
   compressHTML: true,
@@ -29,7 +22,7 @@ export default defineConfig({
     brotli: false
   }), astroI18next(), mdx()],
   output: 'server',
-  adapter: node({
-    mode: "standalone"
-  })
+  adapter: netlify({
+    functionPerRoute: true,
+  }),
 });
